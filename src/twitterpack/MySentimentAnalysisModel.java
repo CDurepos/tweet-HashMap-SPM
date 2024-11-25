@@ -27,10 +27,10 @@ public class MySentimentAnalysisModel {
     private List<String> filter(String text) {
         List<String> terms = new ArrayList<>();
         Pattern pattern = Pattern.compile("[^a-zA-Z\\s]");
-        String alphChars = pattern.matcher(text).replaceAll(""); // Remove non-alphabetic characters
-        String[] tokens = alphChars.toLowerCase().split("\\s+"); // Split by whitespace
+        String alphChars = pattern.matcher(text).replaceAll("");
+        String[] tokens = alphChars.toLowerCase().split("\\s+");
         for (String token : tokens) {
-            if (!isStopword(token)) { // Check if it's not a stopword
+            if (!isStopword(token)) {
                 terms.add(token);
             }
         }
@@ -89,14 +89,5 @@ public class MySentimentAnalysisModel {
         }
 
         return score >= 0;
-    }
-
-    private double calculateIDF(String term, int totalDocuments) {
-        int docCount = 0;
-        if (positive.get(term) != null) docCount++;
-        if (negative.get(term) != null) docCount++;
-
-        if (docCount == 0) return 0;
-        return Math.log((double) totalDocuments / docCount);
     }
 }
