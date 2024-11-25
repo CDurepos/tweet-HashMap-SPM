@@ -86,8 +86,8 @@ public class MyHashMap<K, V> implements Iterable<K> {
     }
 
     private class MyHashMapIterator implements Iterator<K> {
-        private int index; // Tracks the current bucket in the table
-        private Iterator<MyEntry<K, V>> cellIterator; // Iterator for the current bucket
+        private int index;
+        private Iterator<MyEntry<K, V>> cellIterator;
 
         public MyHashMapIterator() {
             index = 0;
