@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 public class MySentimentAnalysisModel {
     private MyHashMap<String, Integer> negative, positive;
-    private MyHashMap<String, Integer> metadataPositive, metadataNegative;
 
     public MySentimentAnalysisModel(MyHashMap<Tweet, Boolean> trainData) {
         this.positive = new MyHashMap<>();
